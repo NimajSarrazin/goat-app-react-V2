@@ -51,9 +51,12 @@ export default function StagiairePage() {
             {" "}
             Tableau de Stagiaire
           </h2>
-          <table className="max-w-7xl mx-auto table-fixed w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <table className="max-w-7xl mx-auto table-fixed w-full text-left text-gray-500 dark:text-gray-400">
+            <thead className="text-md text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
+                <th scope="col" className="px-6 py-3">
+                  id
+                </th>
                 <th scope="col" className="px-6 py-3">
                   Nom
                 </th>
@@ -81,6 +84,7 @@ export default function StagiairePage() {
           {user.map((item) => (
             <Table
               key={item.id}
+              id={item.id}
               fname={item.name}
               lname={item.username}
               email={item.email}
@@ -89,11 +93,12 @@ export default function StagiairePage() {
                 "," +
                 item.address.suite +
                 ", " +
-                item.address.city
+                item.address.city +
+                "," +
+                item.address.zipcode
               }
               phone={item.phone}
-              sociaty={item.name}
-              strokeWidth={item.strokeWidth}
+              company={item.company.name}
             />
           ))}
         </div>
